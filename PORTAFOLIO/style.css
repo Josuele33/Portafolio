@@ -22,6 +22,87 @@ body{
 .container{
     padding: 10px 10%;
 }
+.text-animation {
+    font-size: 34px;
+    font-weight: 600;
+    min-width: 280px;
+}
+
+.text-animation span {
+    position: relative;
+}
+
+.text-animation span::before {
+    content: "Developer FullStack";
+    color: #ff004f;
+    animation: words 20s infinite;
+}
+
+.text-animation span::after {
+    content: "";
+    background-color: #080808;
+    position: absolute;
+    width: calc(100% + 10px);
+    height: 100%;
+    border-left: 3px solid #080808;
+    right: -8px;
+    animation: cursor 0.6s infinite, typing 20s steps(14) infinite;
+}
+
+@keyframes cursor {
+    to {
+        border-left: 2px solid #ff004f;
+    }
+}
+
+@keyframes words {
+    0%, 20% {
+        content: "Programador FullStack";
+    }
+    21%, 40% {
+        content: "Programador Frontend";
+    }
+    41%, 60% {
+        content: "Programador Backend";
+    }
+    61%, 80% {
+        content: "Diseñador Web";
+    }
+}
+
+@keyframes typing {
+    10%, 15%, 30%, 35%, 50%, 55%, 70%, 75%, 90%, 95% {
+        width: 0;
+    }
+    5%, 20%, 25%, 40%, 45%, 60%, 65%, 80%, 85% {
+        width: calc(100% + 8px);
+    }
+}
+
+/* Media Queries para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .text-animation {
+        font-size: 24px;
+        min-width: 200px;
+    }
+
+    .text-animation span::after {
+        right: -5px;
+        width: calc(100% + 5px);
+    }
+}
+
+@media (max-width: 480px) {
+    .text-animation {
+        font-size: 18px;
+        min-width: 150px;
+    }
+
+    .text-animation span::after {
+        right: -3px;
+        width: calc(100% + 3px);
+    }
+}
 
 nav{
     display: flex;
@@ -385,6 +466,7 @@ nav .fa-solid{
         font-size: 14px;
     }
 }
+
 #msg{
     color: #61b752;
     margin-top: -40px;
