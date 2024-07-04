@@ -22,12 +22,8 @@ body{
 .container{
     padding: 10px 10%;
 }
-.text-animation {
-    font-size: 34px;
-    font-weight: 600;
-    min-width: 280px;
-}
 
+/* Animación de texto */
 .text-animation span {
     position: relative;
 }
@@ -40,7 +36,7 @@ body{
 
 .text-animation span::after {
     content: "";
-    background-color: #080808;
+    background-color: #080808; /* Color de fondo para dispositivos grandes */
     position: absolute;
     width: calc(100% + 10px);
     height: 100%;
@@ -89,6 +85,8 @@ body{
     .text-animation span::after {
         right: -5px;
         width: calc(100% + 5px);
+        background-color: transparent; /* Color de fondo transparente para dispositivos medianos */
+        animation: cursor none;
     }
 }
 
@@ -101,6 +99,8 @@ body{
     .text-animation span::after {
         right: -3px;
         width: calc(100% + 3px);
+        background-color: transparent; /* Color de fondo transparente para dispositivos pequeños */
+        animation: cursor none;
     }
 }
 
